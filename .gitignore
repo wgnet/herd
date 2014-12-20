@@ -1,0 +1,6 @@
+.rebar
+TODO.org
+ebin
+TAGS
+.eunit
+erl_crash.dump

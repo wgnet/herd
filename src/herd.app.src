@@ -1,0 +1,9 @@
+{application, herd,
+ [
+  {description, "Base library for erlang projects"},
+  {vsn, "1"},
+  {modules, []},
+  {registered, []},
+  {applications, [kernel, stdlib]},
+  {env, []}
+ ]}.
