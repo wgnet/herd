@@ -27,7 +27,7 @@ get_time(Str) ->
     end.
 
 
--spec get_datetime(string()) -> calendar:datetime().
+-spec get_datetime(string()) -> calendar:datetime() | error.
 get_datetime(Str) ->
     case string:tokens(Str, " ") of
         [DStr, TStr | _] ->
