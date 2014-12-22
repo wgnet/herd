@@ -24,7 +24,7 @@ now_micro() ->
 
 -spec datetime_from_db(db_datetime()) -> calendar:datetime().
 datetime_from_db({Date, {Hour, Minute, Second}}) ->
-    {Date, {Hour, Minute, round(Second)}}.
+    {Date, {Hour, Minute, trunc(Second)}}.
 
 
 -spec timestamp_to_datetime(timestamp() | timestamp_micro()) -> calendar:datetime().
