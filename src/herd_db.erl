@@ -29,7 +29,8 @@ epgsql_row_to_json(Columns, Row) ->
 epgsql_value_to_json(_Type, Value) when is_atom(Value);
                                         is_integer(Value);
                                         is_float(Value);
-                                        is_binary(Value)
+                                        is_binary(Value);
+                                        is_list(Value)
                                         -> Value;
 epgsql_value_to_json(time, {H, M, S}) -> H * 3600 + M * 60 + trunc(S);
 epgsql_value_to_json(date, Date) -> epgsql_value_to_json(timestamp, {Date, {0, 0, 0.0}});
