@@ -4,3 +4,5 @@ ebin
 TAGS
 .eunit
 erl_crash.dump
+_build
+rebar.lock

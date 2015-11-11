@@ -12,14 +12,12 @@
 
 -spec now() -> timestamp().
 now() ->
-    {Mega, Sec, _Micro} = erlang:now(),
-    Mega * 1000000 + Sec.
+    erlang:system_time() div 1000000000.
 
 
 -spec now_micro() -> timestamp_micro().
 now_micro() ->
-    {Mega, Sec, Micro} = erlang:now(),
-    Mega * 1000000 + Sec + Micro * 1.0e-6.
+    erlang:system_time() / 1000000000.
 
 
 -spec datetime_from_db(db_datetime()) -> calendar:datetime().
