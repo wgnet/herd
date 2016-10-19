@@ -1,30 +1,17 @@
 compile:
-	rebar compile skip_deps=true
-
-get-deps:
-	rebar get-deps
-
-compile_all:
-	rebar compile
+	rebar3 compile
 
 eunit:
-	rebar eunit skip_deps=true
+	rebar3 eunit
 
-clean:
-	rebar clean skip_deps=true
-	rm -f erl_crash.dump
-
-clean_all:
-	rebar clean
-	rm -f erl_crash.dump
-
-run:
-	erl -pa ebin +pc unicode
+console:
+	erl -pa _build/default/lib/*/ebin -s epgsql_pool test_run
 
 d:
-	dialyzer --src \
-	-I include -r src test \
-	| fgrep --invert-match --file .dialyzer.ignore
+	rebar3 dialyzer
 
-etags:
-	etags src/* include/*
+clean:
+	rebar3 clean
+
+clean-all:
+	rm -rf _build

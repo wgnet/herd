@@ -1,4 +1,4 @@
--module(herd_db_test).
+-module(herd_db_tests).
 
 -include_lib("eunit/include/eunit.hrl").
 

@@ -1,8 +1,0 @@
-  erlang:get_module_info/1
-  erlang:get_module_info/2
-  erlang:integer_to_list/1
-  erlang:make_ref/0
-  erlang:md5/1
-  erlang:now/0
-  erlang:phash2/1
-  eunit:test/1

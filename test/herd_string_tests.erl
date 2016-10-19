@@ -1,4 +1,4 @@
--module(herd_string_test).
+-module(herd_string_tests).
 
 -include_lib("eunit/include/eunit.hrl").
 
