@@ -1,8 +1,4 @@
-.rebar
-TODO.org
-ebin
-TAGS
-.eunit
-erl_crash.dump
 _build
+erl_crash.dump
 rebar.lock
+.idea
