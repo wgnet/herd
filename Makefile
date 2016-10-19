@@ -5,7 +5,7 @@ eunit:
 	rebar3 eunit
 
 console:
-	erl -pa _build/default/lib/*/ebin -s epgsql_pool test_run
+	erl -pa _build/default/lib/*/ebin
 
 d:
 	rebar3 dialyzer

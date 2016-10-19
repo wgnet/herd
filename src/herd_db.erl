@@ -2,7 +2,16 @@
 
 -export([epgsql_res_to_json/1]).
 
--include("herd.hrl").
+-type(json_key() :: atom() | binary()).
+-type(json_value() :: atom() | integer() | float() | binary() | json_obj() | [json_value()]).
+-type(json_obj() :: {[{json_key(), json_value()}]}).
+
+-type(db_name() :: binary()).
+-type(db_type() :: atom()).
+-type(db_value() :: term()).
+-type(db_row() :: tuple()).
+-type(db_column() :: {column, db_name(), db_type(), term(), term(), term()}).
+-type(db_select() :: {ok, [db_column()], [db_row()]}).
 
 
 %%% module API
