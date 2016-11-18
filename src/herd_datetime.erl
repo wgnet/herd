@@ -17,7 +17,7 @@
 %% PostgreSQL datetime format: 2014-12-20 17:38:56.475565
 -type(db_datetime() :: {calendar:date(), {0..23, 0..59, float()}}).
 
--type(time_interval() :: {integer(), month | week | day | hour | minute | second}).
+-type(time_interval() :: {integer(), week | day | hour | minute | second}).
 
 -define(DAY, 24 * 3600).
 
@@ -66,9 +66,6 @@ datetime_to_ISO({{Year, Month, Day}, {Hour, Minute, Second}}) ->
 
 
 -spec add_interval(calendar:datetime(), time_interval()) -> calendar:datetime().
-add_interval(Datetime, {M, month}) ->
-    add_interval(Datetime, {M * 30 * ?DAY, second});
-
 add_interval(Datetime, {W, week}) ->
     add_interval(Datetime, {W * 7 * ?DAY, second});
 
