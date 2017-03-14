@@ -1,4 +1,4 @@
--module(herd_simple_formats_test).
+-module(herd_simple_formats_tests).
 
 -include_lib("eunit/include/eunit.hrl").
 
