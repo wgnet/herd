@@ -44,4 +44,4 @@ md5hex(Str) ->
 
 %% generates random md5 hash
 -spec hex() -> string().
-hex() -> md5hex(integer_to_list(erlang:phash2({erlang:unique_integer(), make_ref()}))).
+hex() -> md5hex(integer_to_list(erlang:phash2({os:system_time(micro_seconds), make_ref()}))).
