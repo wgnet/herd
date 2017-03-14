@@ -8,8 +8,8 @@
 %% sets random seed for current process
 -spec init_crypto() -> ok.
 init_crypto() ->
-    <<A:32, B:32, C:32>> = crypto:rand_bytes(12),
-    random:seed({A,B,C}),
+    <<A:32, B:32, C:32>> = crypto:strong_rand_bytes(12),
+    rand:seed({A,B,C}),
     ok.
 
 
@@ -44,4 +44,4 @@ md5hex(Str) ->
 
 %% generates random md5 hash
 -spec hex() -> string().
-hex() -> md5hex(integer_to_list(erlang:phash2({now(), make_ref()}))).
+hex() -> md5hex(integer_to_list(erlang:phash2({erlang:unique_integer(), make_ref()}))).
