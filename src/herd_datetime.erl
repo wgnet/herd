@@ -26,12 +26,14 @@
 
 -spec now() -> timestamp().
 now() ->
-    erlang:system_time(seconds).
+    os:system_time(seconds).
+
 
 
 -spec now_micro() -> timestamp_micro().
 now_micro() ->
-    erlang:system_time(micro_seconds) / 1000000.
+    os:system_time(micro_seconds) * 1.0e-6.
+
 
 
 -spec datetime_from_db(db_datetime()) -> calendar:datetime().
