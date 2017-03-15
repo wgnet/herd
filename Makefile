@@ -15,3 +15,4 @@ clean:
 
 clean-all:
 	rm -rf _build
+	rm rebar.lock

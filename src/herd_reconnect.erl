@@ -11,9 +11,9 @@ exp_backoff(Attempt, BaseTimeout, MaxTimeout) ->
 -spec exp_backoff(integer(), integer(), integer(), integer()) -> integer().
 exp_backoff(Attempt, MaxAttempt, _BaseTimeout, MaxTimeout) when Attempt >= MaxAttempt ->
     Half = MaxTimeout div 2,
-    Half + random:uniform(Half);
+    Half + rand:uniform(Half);
 
 exp_backoff(Attempt, _MaxAttempt, BaseTimeout, MaxTimeout) ->
     Timeout = min(erlang:round(math:pow(2, Attempt) * BaseTimeout), MaxTimeout),
     Half = Timeout div 2,
-    Half + random:uniform(Half).
+    Half + rand:uniform(Half).
