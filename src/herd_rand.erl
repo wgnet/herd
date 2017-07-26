@@ -20,7 +20,7 @@ str(Length) ->
                  (Char) when Char > 57 -> Char + 7;
                  (Char) -> Char
               end,
-              [48 + rand:uniform(109) || _ <- lists:seq(1, Length)]).
+              [47 + rand:uniform(109) || _ <- lists:seq(1, Length)]).
 
 
 %% generates UUIDs like "85b3a1cf-d003-4548-a16d-c7739c18f519"
