@@ -20,17 +20,20 @@ str(Length) ->
                  (Char) when Char > 57 -> Char + 7;
                  (Char) -> Char
               end,
-              [crypto:rand_uniform(48, 110) || _ <- lists:seq(1, Length)]).
+              [47 + rand:uniform(109) || _ <- lists:seq(1, Length)]).
 
 
 %% generates UUIDs like "85b3a1cf-d003-4548-a16d-c7739c18f519"
 -spec uuid() -> string().
 uuid() ->
-    R1 = crypto:rand_uniform(1, round(math:pow(2, 48))) - 1,
-    R2 = crypto:rand_uniform(1, round(math:pow(2, 12))) - 1,
-    R3 = crypto:rand_uniform(1, round(math:pow(2, 32))) - 1,
-    R4 = crypto:rand_uniform(1, round(math:pow(2, 30))) - 1,
-    <<TL:32, TM:16, THV:16, CSR:8, CSL:8, N:48>> = <<R1:48, 4:4, R2:12, 2:2, R3:32, R4:30>>,
+    <<R1:48, _:4, R2:12, _:2, R3:62>> = crypto:strong_rand_bytes(16),
+    Rand =
+        <<R1:48,
+          0:1, 1:1, 0:1, 0:1, % version
+          R2:12,
+          1:1, 0:1,           % RFC 4122
+          R3:62>>,
+    <<TL:32, TM:16, THV:16, CSR:8, CSL:8, N:48>> = Rand,
     lists:flatten(io_lib:format("~8.16.0b-~4.16.0b-~4.16.0b-~2.16.0b~2.16.0b-~12.16.0b",
                                 [TL, TM, THV, CSR, CSL, N])).
 
